@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        //Inheritance & Constructor
+        class employee{
+            constructor(name){
+                this.empname = name                
+            }
+            info(){
+                document.write("Employee Name :" + this.empname)
+                document.write("<br>")
+            }
+        }
+
+        class manager extends employee{
+            info(){
+                super.info()
+                document.write("Manager Name :" + this.empname)
+                document.write("<br>")
+
+            }
+        }
+
+        let a = new manager("Dhiraj Jaiswal")
+        
+        a.info()
+
+        //Polymorphism
+        class Animal{
+            survive(){
+                document.write("Animal can live on land , water and air")
+            }
+        }
+        class Tiger extends Animal{
+            survive(){
+                document.write("Tiger lives on land")
+                document.write("<br>")
+            }
+        }
+        class Whale extends Animal{
+            survive(){
+                document.write("Whale is an aquatic animal")
+                document.write("<br>")
+
+            }
+        }
+
+        let tiger= new Tiger()
+        let whale= new Whale()
+        tiger.survive()
+        whale.survive()        
+        
+        //Abstraction
+
+        function Employee(name, age, baseSalary){
+            this.name = name
+            this.age = age
+            this.baseSalary = baseSalary
+
+            let monthlyBonus = 1000
+
+            let calculateFinalSAlary = function(){
+                let finalSalary = baseSalary + monthlyBonus
+                document.write("<br>Final Salry is :"+finalSalary)
+            }
+
+            this.getEmpDetails = function (){
+                document.write("Name :"+this.name+"<br> Age :"+this.age)
+                
+                calculateFinalSAlary()
+            }
+
+        }
+
+        let emp1= new Employee("Dhiraj" , 21 , 100000)
+        emp1.getEmpDetails()
+    </script>
+</body>
+
+</html>
